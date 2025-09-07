@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akkapaka Rajesham Dairy Farms - Fresh Milk & Vegetables</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            /* Replaced placeholder with a real image URL */
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/1458694/pexels-photo-1458694.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+        }
+        /* Simple spinner for loading state */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #34D399;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-3">
+                <!-- Unique SVG Logo -->
+                <svg class="w-12 h-12 text-green-600" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#4ADE80;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#16A34A;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path fill="#E0F2FE" d="M50,10 C27.9,10 10,27.9 10,50 C10,72.1 27.9,90 50,90 C72.1,90 90,72.1 90,50 C90,27.9 72.1,10 50,10 Z"/>
+                    <path fill="url(#logoGradient)" d="M63.6,43.2c-2.4-5.6-7.5-9.8-13.6-9.8s-11.2,4.2-13.6,9.8c-0.5,1.2-0.6,2.5-0.2,3.7c1.3,4.2,5,7.3,9.5,7.3h8.5c4.5,0,8.2-3.1,9.5-7.3C64.2,45.7,64.1,44.4,63.6,43.2z"/>
+                    <path fill="#ffffff" d="M50,10 C50,10 50,70 75,70 C90,70 90,50 90,50 C90,27.9 72.1,10 50,10 Z" opacity="0.2"/>
+                    <path fill="#15803D" d="M35,60c0,0,15-5,30,15c0,0,5-10-5-15C60,60,50,75,50,75S40,65,35,60z" transform="rotate(-15 50 65)"/>
+                </svg>
+                <span class="text-xl font-bold text-green-700">Akkapaka Rajesham Dairy Farms</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-gray-600 hover:text-green-600">Home</a>
+                <a href="#products" class="text-gray-600 hover:text-green-600">Products</a>
+                <a href="#recipes" class="text-gray-600 hover:text-green-600">Recipes</a>
+                <a href="#about" class="text-gray-600 hover:text-green-600">About Us</a>
+                <a href="#contact" class="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700">Contact Us</a>
+                 <!-- User Image in Header -->
+                <img src="https://images.pexels.com/photos/5412435/pexels-photo-5412435.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=1" alt="Akkapaka Rajesham" class="w-10 h-10 rounded-full object-cover border-2 border-green-200"
+                onerror="this.onerror=null;this.src='https://placehold.co/40x40/E5E7EB/1F2937?text=Owner';">
+            </div>
+             <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2">
+            <a href="#home" class="block text-gray-600 hover:text-green-600">Home</a>
+            <a href="#products" class="block text-gray-600 hover:text-green-600">Products</a>
+            <a href="#recipes" class="block text-gray-600 hover:text-green-600">Recipes</a>
+            <a href="#about" class="block text-gray-600 hover:text-green-600">About Us</a>
+            <a href="#contact" class="block bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700">Contact Us</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-bg text-white">
+            <div class="container mx-auto px-6 py-24 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Farm Fresh Goodness, Delivered to You</h1>
+                <p class="text-lg md:text-xl mb-8">Pure milk, organic vegetables, and coconuts straight from our farm.</p>
+                <a href="#products" class="bg-white text-green-700 font-bold py-3 px-8 rounded-full hover:bg-gray-200 transition duration-300">Explore Our Products</a>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-10">Our Products</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Product Card: Cow Milk -->
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 flex flex-col">
+                        <img src="https://images.pexels.com/photos/248412/pexels-photo-248412.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Cow Milk" class="w-full h-48 object-cover">
+                        <div class="p-6 flex-grow flex flex-col">
+                            <h3 class="text-xl font-semibold mb-2">Fresh Cow Milk</h3>
+                            <p class="text-gray-600 mb-4">100% pure and natural cow's milk, rich in calcium and protein.</p>
+                            <p class="text-2xl font-bold text-green-600 mb-4">₹80 <span class="text-lg font-normal">/ Liter</span></p>
+                            <div class="mt-auto flex flex-col sm:flex-row gap-2">
+                                <a href="tel:6281813246" class="flex-1 text-center bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 flex items-center justify-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" /></svg>
+                                    Call
+                                </a>
+                                <a href="https://wa.me/916281813246?text=Hi!%20I'd%20like%20to%20order%20Fresh%20Cow%20Milk." target="_blank" class="flex-1 text-center bg-emerald-500 text-white py-2 px-4 rounded-lg hover:bg-emerald-600 flex items-center justify-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943s-.182-.15-.38-.25z"/></svg>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card: Buffalo Milk -->
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 flex flex-col">
+                        <img src="https://images.pexels.com/photos/7993333/pexels-photo-7993333.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Buffalo Milk" class="w-full h-48 object-cover">
+                        <div class="p-6 flex-grow flex flex-col">
+                            <h3 class="text-xl font-semibold mb-2">Creamy Buffalo Milk</h3>
+                            <p class="text-gray-600 mb-4">Thick, creamy, and perfect for making curd, ghee, and sweets.</p>
+                            <p class="text-2xl font-bold text-green-600 mb-4">₹80 <span class="text-lg font-normal">/ Liter</span></p>
+                            <div class="mt-auto flex flex-col sm:flex-row gap-2">
+                                <a href="tel:6281813246" class="flex-1 text-center bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 flex items-center justify-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" /></svg>
+                                    Call
+                                </a>
+                                <a href="https://wa.me/916281813246?text=Hi!%20I'd%20like%20to%20order%20Creamy%20Buffalo%20Milk." target="_blank" class="flex-1 text-center bg-emerald-500 text-white py-2 px-4 rounded-lg hover:bg-emerald-600 flex items-center justify-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943s-.182-.15-.38-.25z"/></svg>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card: Organic Vegetables -->
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 flex flex-col">
+                        <img src="https://images.pexels.com/photos/2255935/pexels-photo-2255935.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Organic Vegetables" class="w-full h-48 object-cover">
+                        <div class="p-6 flex-grow flex flex-col">
+                           <h3 class="text-xl font-semibold mb-2">Organic Vegetables</h3>
+                           <p class="text-gray-600 mb-4 flex-grow">A fresh assortment including Tomato, Brinjals, Ladies' Fingers, and many more.</p>
+                           <p class="text-2xl font-bold text-green-600 mb-4">Fresh Prices <span class="text-lg font-normal">Daily</span></p>
+                           <div class="mt-auto flex flex-col sm:flex-row gap-2">
+                                <a href="tel:6281813246" class="flex-1 text-center bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 flex items-center justify-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" /></svg>
+                                    Call
+                                </a>
+                                <a href="https://wa.me/916281813246?text=Hi!%20I'd%20like%20to%20order%20Green%20Vegetables." target="_blank" class="flex-1 text-center bg-emerald-500 text-white py-2 px-4 rounded-lg hover:bg-emerald-600 flex items-center justify-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943s-.182-.15-.38-.25z"/></svg>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Card: Coconut -->
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 flex flex-col">
+                        <img src="https://images.pexels.com/photos/632145/pexels-photo-632145.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Large Coconuts" class="w-full h-48 object-cover">
+                        <div class="p-6 flex-grow flex flex-col">
+                           <h3 class="text-xl font-semibold mb-2">Large Coconuts</h3>
+                           <p class="text-gray-600 mb-4 flex-grow">Fresh, large-sized coconuts, perfect for cooking and drinking.</p>
+                           <p class="text-2xl font-bold text-green-600 mb-4">₹40 <span class="text-lg font-normal">/ Coconut</span></p>
+                           <div class="mt-auto flex flex-col sm:flex-row gap-2">
+                                <a href="tel:6281813246" class="flex-1 text-center bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 flex items-center justify-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" /></svg>
+                                    Call
+                                </a>
+                                <a href="https://wa.me/916281813246?text=Hi!%20I'd%20like%20to%20order%20Large%20Coconuts." target="_blank" class="flex-1 text-center bg-emerald-500 text-white py-2 px-4 rounded-lg hover:bg-emerald-600 flex items-center justify-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943s-.182-.15-.38-.25z"/></svg>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Gemini Recipe Generator Section -->
+        <section id="recipes" class="py-16">
+            <div class="container mx-auto px-6">
+                <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-bold text-center mb-2">Need a Recipe Idea?</h2>
+                    <p class="text-center text-gray-600 mb-8">Select our products and we'll generate a custom recipe for you!</p>
+                    
+                    <div id="recipe-form">
+                        <div class="flex flex-wrap justify-center gap-4 mb-6">
+                            <label class="flex items-center space-x-2 border border-gray-200 p-3 rounded-lg cursor-pointer hover:bg-green-50">
+                                <input type="checkbox" name="ingredient" value="Fresh Cow Milk" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500">
+                                <span>Fresh Cow Milk</span>
+                            </label>
+                            <label class="flex items-center space-x-2 border border-gray-200 p-3 rounded-lg cursor-pointer hover:bg-green-50">
+                                <input type="checkbox" name="ingredient" value="Creamy Buffalo Milk" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500">
+                                <span>Creamy Buffalo Milk</span>
+                            </label>
+                            <label class="flex items-center space-x-2 border border-gray-200 p-3 rounded-lg cursor-pointer hover:bg-green-50">
+                                <input type="checkbox" name="ingredient" value="Organic Vegetables (like tomato, brinjal, ladies' fingers)" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500">
+                                <span>Organic Vegetables</span>
+                            </label>
+                             <label class="flex items-center space-x-2 border border-gray-200 p-3 rounded-lg cursor-pointer hover:bg-green-50">
+                                <input type="checkbox" name="ingredient" value="Coconut" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500">
+                                <span>Coconut</span>
+                            </label>
+                        </div>
+                        <div class="text-center">
+                            <button id="generate-recipe-btn" class="bg-green-600 text-white font-bold py-3 px-8 rounded-full hover:bg-green-700 transition duration-300 inline-flex items-center space-x-2">
+                                ✨ Generate Recipe
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="recipe-result" class="mt-8 hidden">
+                        <div id="loader" class="loader hidden"></div>
+                        <div id="recipe-content" class="bg-gray-50 p-6 rounded-lg whitespace-pre-wrap text-gray-700"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                        <img src="https://images.pexels.com/photos/5782761/pexels-photo-5782761.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Akkapaka Rajesham, owner of the farm" class="rounded-lg shadow-xl w-full h-auto object-cover"
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/D1FAE5/10B981?text=Our+Family+Farm';">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold mb-4">About Akkapaka Rajesham Dairy Farms</h2>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Welcome to our family-owned farm, where we believe in the goodness of nature. For years, we have been dedicated to providing our community with the freshest, most wholesome dairy and vegetable products. Our cows are raised with care, and our vegetables are grown using sustainable, organic practices.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            We are passionate about bringing the farm-to-table experience directly to your home. Quality, purity, and customer trust are the cornerstones of our business.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 bg-green-700 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-6">Order Directly From Us!</h2>
+                <p class="max-w-2xl mx-auto mb-8">
+                    Ready to place an order or have questions? Contact us directly! We are here to serve you with the freshest products from our farm.
+                </p>
+                <div class="flex flex-wrap justify-center gap-8">
+                    <div class="bg-white text-gray-800 p-8 rounded-lg shadow-lg flex flex-col items-center">
+                        <h3 class="text-xl font-semibold mb-2">Akkapaka Rajesham</h3>
+                        <p class="text-2xl font-bold text-green-600 mb-6">6281813246</p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="tel:6281813246" class="bg-green-600 text-white py-3 px-6 rounded-full hover:bg-green-700 transition duration-300 flex items-center justify-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" /></svg>
+                                Call to Order
+                            </a>
+                            <a href="https://wa.me/916281813246?text=Hi!%20I'd%20like%20to%20place%20an%20order." target="_blank" class="bg-emerald-500 text-white py-3 px-6 rounded-full hover:bg-emerald-600 transition duration-300 flex items-center justify-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943s-.182-.15-.38-.25z"/></svg>
+                                Order on WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 flex items-center justify-center gap-4 text-white text-left max-w-2xl mx-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                    </svg>
+                    <div>
+                        <h4 class="text-xl font-bold">Our Location</h4>
+                        <p class="text-lg">Malyalapalli Village, Ramagundam Mandal, Peddapalli District, Telangana</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; since 2020, Akkapaka Rajesham Dairy Farms. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Gemini API Recipe Generator
+        const generateBtn = document.getElementById('generate-recipe-btn');
+        const recipeResultDiv = document.getElementById('recipe-result');
+        const recipeContentDiv = document.getElementById('recipe-content');
+        const loader = document.getElementById('loader');
+
+        generateBtn.addEventListener('click', async () => {
+            const selectedIngredients = Array.from(document.querySelectorAll('input[name="ingredient"]:checked'))
+                .map(checkbox => checkbox.value);
+
+            if (selectedIngredients.length === 0) {
+                recipeResultDiv.classList.remove('hidden');
+                recipeContentDiv.classList.remove('hidden');
+                loader.classList.add('hidden');
+                recipeContentDiv.textContent = 'Please select at least one ingredient to generate a recipe.';
+                return;
+            }
+
+            recipeResultDiv.classList.remove('hidden');
+            loader.classList.remove('hidden');
+            recipeContentDiv.classList.add('hidden');
+            recipeContentDiv.textContent = '';
+
+            const ingredientList = selectedIngredients.join(', ');
+            const userPrompt = `You are a helpful assistant for Akkapaka Rajesham Dairy Farms, a local farm in India. Create a simple, delicious, and easy-to-follow Indian recipe using the following ingredients from the farm: ${ingredientList}. Provide a catchy name for the recipe, a list of all required ingredients (including common pantry items), and step-by-step instructions. Format the response clearly with headings for each section.`;
+
+            try {
+                const generatedText = await callGeminiAPI(userPrompt);
+                recipeContentDiv.textContent = generatedText;
+            } catch (error) {
+                console.error("Error calling Gemini API:", error);
+                recipeContentDiv.textContent = 'Sorry, we couldn\'t generate a recipe at this time. Please try again later.';
+            } finally {
+                loader.classList.add('hidden');
+                recipeContentDiv.classList.remove('hidden');
+            }
+        });
+        
+        async function callGeminiAPI(prompt, retries = 3, delay = 1000) {
+            const apiKey = ""; // API key is handled by the execution environment
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{
+                    parts: [{
+                        text: prompt
+                    }]
+                }]
+            };
+
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(payload),
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    
+                    if (result.candidates && result.candidates.length > 0 && result.candidates[0].content.parts.length > 0) {
+                        return result.candidates[0].content.parts[0].text;
+                    } else {
+                        throw new Error('Received an empty or invalid response from the API.');
+                    }
+
+                } catch (error) {
+                    console.error(`Attempt ${i + 1} failed. Retrying in ${delay}ms...`, error);
+                    if (i === retries - 1) throw error; 
+                    await new Promise(res => setTimeout(res, delay));
+                    delay *= 2; 
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
+
